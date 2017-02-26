@@ -87,7 +87,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     func addToFB() {
         //stored to storage
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+
         guard let name = FIRAuth.auth()?.currentUser?.email else { return }
+
+        //guard let name = FIRAuth.auth()?.currentUser?.displayName else { return }
+
         guard let comment = commentTextView?.text else { return }
         let linkRef = self.databaseRef.childByAutoId()
         let storageRef = FIRStorage.storage().reference().child("images").child(linkRef.key)
@@ -105,7 +109,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                     }
                     
                     //stored to database
-                    let values = ["name": name, "comment": comment]
+                    let values = ["userId": uid, "comment": comment, "name": "flowerfreak"]
                     
                     linkRef.setValue(values) { (error, reference) in
                         if let error = error {

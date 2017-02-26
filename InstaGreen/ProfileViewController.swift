@@ -17,7 +17,8 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var profileImageView: UIImageView!
+ 
+    @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var postsLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
@@ -32,7 +33,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.profileImageView.image = UIImage(named: "default")
+        self.profileImageButton.setImage(UIImage(named: "default"), for: .normal)
         self.likesLabel.text = "5💚"
         self.rankLabel.text = "Seedling"
         checkUser()
@@ -98,7 +99,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 //Check cache for profile image
                 if let cachedProfilePic = imageCache.object(forKey: downloadURL as AnyObject) {
                     DispatchQueue.main.async {
-                        self.profileImageView.image = cachedProfilePic as? UIImage
+                        let image = cachedProfilePic as? UIImage
+                        self.profileImageButton.setImage(image, for: .normal)
                     }
                     return
                 }
@@ -115,7 +117,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                         DispatchQueue.main.async {
                             let pic = UIImage(data: data)
                             imageCache.setObject(pic!, forKey: downloadURL as AnyObject)
-                            self.profileImageView.image = pic
+                            self.profileImageButton.setImage(pic, for: .normal)
                         }
                     }
                 }
@@ -228,11 +230,13 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
             })
         }
         
-        
-        self.profileImageView.image = info["UIImagePickerControllerOriginalImage"] as! UIImage?
+        let image = info["UIImagePickerControllerOriginalImage"] as! UIImage?
+        profileImageButton.setImage(image, for: .normal)
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func profileImageButtonTapped(_ sender: UIButton) {
+    }
 
     
     //MARK: - Utilities
