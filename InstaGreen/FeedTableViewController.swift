@@ -82,6 +82,7 @@ class FeedTableViewController: UITableViewController {
             }
         }
         cell.likesLabel.text = "\(self.num) likes"
+        cell.profileImageView.image = UIImage(named: "flower")
         
         //names
         let index = Int(arc4random_uniform(UInt32(randomUsers.count)) + 1)
