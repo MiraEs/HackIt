@@ -28,6 +28,12 @@ class GardensTableViewCell: UITableViewCell {
 
     @IBAction func directionsButtonTapped(_ sender: UIButton) {
         
+        guard let address  = gardenAddressLabel.text else { return }
+        let validAddress = address.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: " ", with: "%20")
+        let url = "http://maps.apple.com/?address=" + validAddress
+        if let url = NSURL(string: url) {
+            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+        }
         
     }
 }
