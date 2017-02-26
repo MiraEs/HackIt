@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -24,7 +25,31 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         uploadedImagesCollectionView.delegate = self
         uploadedImagesCollectionView.dataSource = self
         
-        // Do any additional setup after loading the view.
+        checkUser()
+    }
+    
+    func checkUser() {
+        if FIRAuth.auth()?.currentUser == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let lvc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+            let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")
+            let alertController = UIAlertController(title: "Login Required!", message: nil, preferredStyle: .alert)
+            self.present(alertController, animated: true, completion: nil)
+            
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                self.present(lvc, animated: true, completion: nil)
+            }))
+            alertController.addAction(UIAlertAction(title: "Back", style: .default, handler: { (action: UIAlertAction!) in
+                self.present(tbvc, animated: true, completion: nil)
+            }))
+        } else {
+            
+        }
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        checkUser()
     }
     
     
@@ -42,14 +67,23 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    //MARK: - Utilities
+    
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        print("clicked logout")
+            do{
+                try FIRAuth.auth()?.signOut()
+            }
+            catch{
+                let alertController = UIAlertController(title: "Error", message: "Trouble Logging Out", preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+            
+            // let _ = self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
+        
+    }
     
 }

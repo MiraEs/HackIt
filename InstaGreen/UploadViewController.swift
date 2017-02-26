@@ -30,11 +30,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         commentTextView?.textColor = UIColor.lightGray
         commentTextView?.layer.borderWidth = 1.0
         commentTextView?.layer.borderColor = UIColor.lightGray.cgColor
-        loginAnonymously()
+        //loginAnonymously()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if (FIRAuth.auth()?.currentUser?.isAnonymous)! {
+        if FIRAuth.auth()?.currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let lvc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
             let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")

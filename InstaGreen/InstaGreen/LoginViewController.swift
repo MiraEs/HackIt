@@ -19,7 +19,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        let rightBarButton = UIBarButtonItem(customView: cancelButton)
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     
@@ -80,15 +81,20 @@ class LoginViewController: UIViewController {
         passwordTextField.text = nil
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func cancel() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: - buttons
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton(type: UIButtonType.custom)
+        button.setTitle("cancel", for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 80, height: 20)
+        button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        return button
+    }()
+    
+  
     
 }
 
