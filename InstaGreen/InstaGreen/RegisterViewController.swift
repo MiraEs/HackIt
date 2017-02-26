@@ -27,7 +27,6 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func finishRegsiter(_ sender: UIButton) {
-        let ref = FIRDatabase.database().reference().child("users").childByAutoId()
         if let name = name.text, let email = email.text, let password = password.text {
             
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -37,6 +36,9 @@ class RegisterViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 }
                 else {
+                    let id = FIRAuth.auth()?.currentUser?.uid
+                    let ref = FIRDatabase.database().reference().child("users").child(id!)
+                    
                     let values = ["name": name, "email": email]
                     
                     ref.setValue(values) {(error, reference) in
