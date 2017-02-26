@@ -38,7 +38,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             if user != nil {
                 print("Signed in anonymously!")
                 
-                //self.shouldPerformSegue(withIdentifier: self.segue, sender: self)
+                 //self.shouldPerformSegue(withIdentifier: self.segue, sender: self)
             }
         })
         
