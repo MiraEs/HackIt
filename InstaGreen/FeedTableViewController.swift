@@ -13,11 +13,15 @@ class FeedTableViewController: UITableViewController {
     private let reuseIdentifier = "feedCell"
     var databaseRef: FIRDatabaseReference!
     var posts: [Post] = []
+    var num = 3
+    
+    var randomUsers = ["flowerFreak", "some dude", "another person", "garden awesome"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "Posts"
+
         let uid = FIRAuth.auth()?.currentUser?.uid
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
         tableView.estimatedRowHeight = 200
@@ -29,6 +33,7 @@ class FeedTableViewController: UITableViewController {
         posts.removeAll()
         getPosts()
         dump("posts >>>> \(self.posts)")
+        
     }
 
     //MARK: - Fetch data from FB
@@ -37,7 +42,7 @@ class FeedTableViewController: UITableViewController {
             for child in snapshot.children {
                 if let snap = child as? FIRDataSnapshot,
                     let valueDict = snap.value as? [String: String] {
-                    let post = Post(userId: valueDict["user"] ?? "", comment: valueDict["comment"] ?? "", key: snap.key )
+                    let post = Post(userId: valueDict["userId"] ?? "", comment: valueDict["comment"] ?? "", key: snap.key )
                     self.posts.append(post)
                 }
             }
@@ -68,20 +73,20 @@ class FeedTableViewController: UITableViewController {
         
         print(post.userId)
         cell.commentLabel.text = post.comment
+  //      cell.userNameLabel.text = snapshot.value as? String
         
-        let userReference = FIRDatabase.database().reference().child("users")
-        
-        
-        dump(userReference)
-        userReference.observe(.childAdded, with: { (snapshot) in
-           // dump(snapshot.key)
-//            if snapshot.key == post.userId {
-//                print("MATCHED")
-                dump(snapshot.value as? String)
-                cell.userNameLabel.text = snapshot.value as? String
-           // }
-    
-        })
+//        let userReference = FIRDatabase.database().reference().child("users").child(post.userId)
+//        
+//        dump(userReference)
+//        userReference.observe(.childAdded, with: { (snapshot) in
+//           // dump(snapshot.key)
+////            if snapshot.key == post.userId {
+////                print("MATCHED")
+//                dump(snapshot.value as? String)
+//                cell.userNameLabel.text = snapshot.value as? String
+//           // }
+//    
+//        })
 
         
 //        FIRDatabase.database().reference().child("users").observe(.childAdded, with: (snapshot) in
@@ -100,11 +105,18 @@ class FeedTableViewController: UITableViewController {
                 cell.gardenImageView.image = image
             }
         }
+        cell.likesLabel.text = "\(self.num) likes"
+        
+        //names
+        let index = Int(arc4random_uniform(UInt32(randomUsers.count)) + 1)
+        cell.userNameLabel.text = randomUsers[0]
+        
         
         //like imageview
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(likeImageTapped(tapGestureRecognizer:)))
         cell.likedImage.isUserInteractionEnabled = true
         cell.likedImage.addGestureRecognizer(tapGestureRecognizer)
+        
 
         return cell
     }
