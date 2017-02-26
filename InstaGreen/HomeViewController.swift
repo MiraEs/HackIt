@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationsTableView: UITableView!
     
+    var currentGarden: Garden?
     var gardens: [Garden] = []
     let initialLocation = CLLocation(latitude: 40.7128, longitude: -74.0059)
     let regionRadius: CLLocationDistance = 1000
@@ -75,6 +76,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.gardenAddressLabel.text = garden.address
         }
         
+        //push this location data to upload screen for photo property
+        
         
         return cell
     }
@@ -87,6 +90,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             DispatchQueue.main.async {
                 self.addPin(at: garden.name, lat: cordinates.0, long: cordinates.1)
                 self.mapView.reloadInputViews()
+                self.currentGarden = garden
             }
         })
     }
@@ -121,14 +125,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.mapView.reloadInputViews()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("clicked annotation")
+        let uploadVC = UploadViewController()
+        uploadVC.currentGarden = self.currentGarden
+        navigationController?.pushViewController(uploadVC, animated: true)
+        
+    }
+    
+    
     
 }
