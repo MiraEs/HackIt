@@ -13,7 +13,7 @@ class APIRequestManager {
     static let manager: APIRequestManager = APIRequestManager()
     private init() {}
     
-    func getPOD(endPoint: String, callback: @escaping(Data?) -> Void) {
+    func getData(endPoint: String, callback: @escaping(Data?) -> Void) {
         guard let myURL = URL(string: endPoint) else { return }
         let session = URLSession(configuration: URLSessionConfiguration.default)
         session.dataTask(with: myURL) { (data: Data?, response: URLResponse?, error: Error?) in
