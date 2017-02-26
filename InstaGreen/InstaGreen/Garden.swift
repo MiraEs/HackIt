@@ -17,8 +17,14 @@ class Garden {
     init(address: String, boro: String, name: String, neighborhood: String) {
         self.address = address
         self.boro = boro
+        self.name = name
         self.neighborhood = neighborhood
     }
     
-    //convenience init?(from dict: [String: String])
+    convenience init?(from dict: [String: String]) {
+        let address = dict["address"]
+        let boro = dict["boro"]
+        let name = dict["garden_name"]
+        let neighborhood = dict["address"]
+    }
 }
