@@ -129,7 +129,19 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("clicked annotation")
         let uploadVC = UploadViewController()
         uploadVC.currentGarden = self.currentGarden
-        navigationController?.pushViewController(uploadVC, animated: true)
+        
+        if self.tabBarController != nil {
+            tabBarController?.selectedIndex = 1
+        }
+        
+//        if self.window!.rootViewController as? UITabBarController != nil {
+//            var tababarController = self.window!.rootViewController as UITabBarController
+//            tababarController.selectedIndex = 1
+//        }
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let tbvc = storyboard.instantiateViewController(withIdentifier: "UploadVC")
+//        self.present(tbvc, animated: true, completion: nil)
         
     }
     
