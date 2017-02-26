@@ -7,36 +7,42 @@
 //
 
 import UIKit
+import Firebase
 
-class UploadViewController: UIViewController {
+class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    
+    let picker = UIImagePickerController()
     @IBOutlet weak var commentTextView: UITextView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        picker.delegate = self
     }
 
-
-
+    //MARK: - Upload function
     @IBAction func uploadTapped(_ sender: UIButton) {
-        
-        
-        
+        picker.allowsEditing = true
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
     }
     
+    //MARK: - Upload to firebase
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    //MARK: - Set up picker funcitons
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            //self.uploadImageView.contentMode = .scaleAspectFit
+            dump(image)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
     }
-    */
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("canceled picker")
+        dismiss(animated: true, completion: nil)
+    }
 
 }
