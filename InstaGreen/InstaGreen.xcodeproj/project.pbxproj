@@ -14,6 +14,8 @@
 		9BF17FA41E63343A00524FC6 /* GardensTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF17FA31E63343A00524FC6 /* GardensTableViewCell.swift */; };
 		9BF17FA61E634A6800524FC6 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF17FA51E634A6800524FC6 /* FeedTableViewCell.swift */; };
 		9BF17FA81E63615900524FC6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF17FA71E63615900524FC6 /* LoginViewController.swift */; };
+		9BF17FAA1E63792600524FC6 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF17FA91E63792600524FC6 /* ColorPalette.swift */; };
+		9BF17FAC1E637E4800524FC6 /* UploadedImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF17FAB1E637E4800524FC6 /* UploadedImagesCollectionViewCell.swift */; };
 		B7C96DF29AF7DC5DE4983915 /* Pods_InstaGreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7C88494A224F46CE2338828 /* Pods_InstaGreen.framework */; };
 		E3F44F041E63202500E797B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F44F031E63202500E797B8 /* AppDelegate.swift */; };
 		E3F44F091E63202500E797B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F44F071E63202500E797B8 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		9BF17FA31E63343A00524FC6 /* GardensTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardensTableViewCell.swift; sourceTree = "<group>"; };
 		9BF17FA51E634A6800524FC6 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		9BF17FA71E63615900524FC6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9BF17FA91E63792600524FC6 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		9BF17FAB1E637E4800524FC6 /* UploadedImagesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadedImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4F74C41A92F21D3E476AB22 /* Pods-InstaGreen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaGreen.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaGreen/Pods-InstaGreen.debug.xcconfig"; sourceTree = "<group>"; };
 		E3F44F001E63202500E797B8 /* InstaGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F44F031E63202500E797B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				E3F44F231E63554200E797B8 /* Views */,
 				E3F44F251E63555900E797B8 /* Cell */,
 				E3F44F071E63202500E797B8 /* Main.storyboard */,
+				9BF17FA91E63792600524FC6 /* ColorPalette.swift */,
 				E3F44F0A1E63202500E797B8 /* Assets.xcassets */,
 				E3F44F0C1E63202500E797B8 /* LaunchScreen.storyboard */,
 				E3F44F1D1E632BC300E797B8 /* GoogleService-Info.plist */,
@@ -141,6 +146,7 @@
 			children = (
 				9BF17FA51E634A6800524FC6 /* FeedTableViewCell.swift */,
 				9BF17FA31E63343A00524FC6 /* GardensTableViewCell.swift */,
+				9BF17FAB1E637E4800524FC6 /* UploadedImagesCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -279,8 +285,10 @@
 				9BF17F9E1E63256400524FC6 /* ProfileViewController.swift in Sources */,
 				9BF17F9A1E63254700524FC6 /* FeedTableViewController.swift in Sources */,
 				9BF17F981E63252D00524FC6 /* HomeViewController.swift in Sources */,
+				9BF17FAC1E637E4800524FC6 /* UploadedImagesCollectionViewCell.swift in Sources */,
 				E3F44F221E63529F00E797B8 /* Post.swift in Sources */,
 				9BF17FA81E63615900524FC6 /* LoginViewController.swift in Sources */,
+				9BF17FAA1E63792600524FC6 /* ColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@ import CoreLocation
 import FirebaseAuth
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
-
+    
     let picker = UIImagePickerController()
     var currentGarden: Garden?
     var selectedImage: UIImage!
@@ -54,7 +54,23 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-
+    
+    //MARK: - MOVE THESE FUNCTIONS
+    func loginAnonymously() {
+        FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
+            
+            if error != nil {
+                print("Error attempting to log in anonymously: \(error!)")
+            }
+            if user != nil {
+                print("Signed in anonymously!")
+                
+                //self.shouldPerformSegue(withIdentifier: self.segue, sender: self)
+            }
+        })
+        
+    }
+    
     //MARK: - Upload function
     @IBAction func uploadTapped(_ sender: UIButton) {
         picker.allowsEditing = true
@@ -62,7 +78,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(picker, animated: true, completion: nil)
     }
     
-
+    
     //MARK: - Upload to firebase
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         addToFB()
@@ -74,42 +90,46 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         guard let name = FIRAuth.auth()?.currentUser?.displayName else { return }
         guard let comment = commentTextView?.text else { return }
         let linkRef = self.databaseRef.childByAutoId()
-        
         let storageRef = FIRStorage.storage().reference().child("images").child(linkRef.key)
         
         if selectedImage != nil {
-        
-        if let uploadData = UIImageJPEGRepresentation(self.uploadButton.currentImage!, 0.5) {
             
-            storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+            //stored to database
+            let values = ["userId": uid, "comment": comment, "name": "flowerFreak"]
+            
+            if let uploadData = UIImageJPEGRepresentation(self.uploadButton.currentImage!, 0.5) {
                 
-                if error != nil {
-                    print(error!.localizedDescription)
-                    return
-                }
                 
-                //stored to database
-                let values = ["userId": uid, "comment": comment, "name": "flowerFreak"]
-                
-                linkRef.setValue(values) { (error, reference) in
-                    if let error = error {
-                        print(error)
+                storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                    
+                    if error != nil {
+                        print(error!.localizedDescription)
+                        return
                     }
-                    else {
-                        print(reference)
-                        let alert = UIAlertController(title: "Upload Success!", message: nil, preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                        alert.addAction(ok)
-                        self.present(alert, animated: true, completion: nil)
-                        //self.dismiss(animated: true, completion: nil)
+                    
+                    //stored to database
+                    let values = ["userId": uid, "comment": comment]
+                    
+                    linkRef.setValue(values) { (error, reference) in
+                        if let error = error {
+                            print(error)
+                        }
+                        else {
+                            print(reference)
+                            let alert = UIAlertController(title: "Upload Success!", message: nil, preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alert.addAction(ok)
+                            self.present(alert, animated: true, completion: nil)
+                            //self.dismiss(animated: true, completion: nil)
+                        }
                     }
-                }
-                
-            })
-        }
+                    
+                })
+            }
         }
     }
- 
+    
+    
     //MARK: - Set up picker funcitons
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
@@ -118,8 +138,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.selectedImage = image
             dump(image)
             
-          //photo location??
-        
+            //photo location??
             
         }
         
@@ -146,5 +165,5 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             textView.textColor = UIColor.lightGray
         }
     }
-
+    
 }
