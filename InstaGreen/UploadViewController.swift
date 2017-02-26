@@ -15,12 +15,13 @@ import CoreLocation
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     let picker = UIImagePickerController()
+    let pictureLocation: String?
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var uploadButton: UIButton!
     
     var databaseRef: FIRDatabaseReference!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
