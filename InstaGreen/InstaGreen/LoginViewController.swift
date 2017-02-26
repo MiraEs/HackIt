@@ -56,23 +56,25 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerTapped(_ sender: UIButton) {
-        
-        if let email = emailTextField.text, let password = passwordTextField.text {
-            
-            FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
-                if let error = error {
-                    print("User Creating Error \(error.localizedDescription)")
-                    let alertController = showAlert(title: "Signup Failed!", message: "Failed to Register. Please Try Again!")
-                    self.present(alertController, animated: true, completion: nil)
-                    self.clearTextFields()
-                }
-                else {
-                    let alertController = showAlert(title: "Signup Successful!", message: "Successfully Registered. Please Login to Use Our App!")
-                    self.present(alertController, animated: true, completion: nil)
-                    self.clearTextFields()
-                }
-            })
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let rvc = storyboard.instantiateViewController(withIdentifier: "registerVC")
+        self.present(rvc, animated: true, completion: nil)
+//        if let email = emailTextField.text, let password = passwordTextField.text {
+//            
+//            FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+//                if let error = error {
+//                    print("User Creating Error \(error.localizedDescription)")
+//                    let alertController = showAlert(title: "Signup Failed!", message: "Failed to Register. Please Try Again!")
+//                    self.present(alertController, animated: true, completion: nil)
+//                    self.clearTextFields()
+//                }
+//                else {
+//                    let alertController = showAlert(title: "Signup Successful!", message: "Successfully Registered. Please Login to Use Our App!")
+//                    self.present(alertController, animated: true, completion: nil)
+//                    self.clearTextFields()
+//                }
+//            })
+//        }
         
     }
     
