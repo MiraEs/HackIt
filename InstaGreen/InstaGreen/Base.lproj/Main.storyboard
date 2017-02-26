@@ -381,6 +381,7 @@
                                 <connections>
                                     <outlet property="commentLabel" destination="13a-8B-daT" id="lBC-bc-PQh"/>
                                     <outlet property="gardenImageView" destination="kSQ-2e-e1S" id="djO-rK-TLZ"/>
+                                    <outlet property="likedImage" destination="h6j-tG-9NJ" id="dmT-Mx-Rou"/>
                                     <outlet property="likesLabel" destination="qXF-GE-34f" id="b5q-g3-AEG"/>
                                     <outlet property="locationLabel" destination="vdk-ac-bpL" id="WOc-SE-DfD"/>
                                     <outlet property="profileImageView" destination="kgp-Mb-HV0" id="tUx-Tn-U87"/>
