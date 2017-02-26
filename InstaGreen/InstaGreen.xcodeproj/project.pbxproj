@@ -97,13 +97,29 @@
 				9BF17F9B1E63255800524FC6 /* UploadViewController.swift */,
 				9BF17F9D1E63256400524FC6 /* ProfileViewController.swift */,
 				E3F44F071E63202500E797B8 /* Main.storyboard */,
+				E3F44F201E632E9F00E797B8 /* Supporting Files */,
+				E3F44F1F1E632E9600E797B8 /* Manager */,
+			);
+			path = InstaGreen;
+			sourceTree = "<group>";
+		};
+		E3F44F1F1E632E9600E797B8 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E3F44F1B1E632A7000E797B8 /* APIRequestManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		E3F44F201E632E9F00E797B8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				E3F44F0A1E63202500E797B8 /* Assets.xcassets */,
 				E3F44F0C1E63202500E797B8 /* LaunchScreen.storyboard */,
 				E3F44F1D1E632BC300E797B8 /* GoogleService-Info.plist */,
 				E3F44F0F1E63202500E797B8 /* Info.plist */,
-				E3F44F1B1E632A7000E797B8 /* APIRequestManager.swift */,
 			);
-			path = InstaGreen;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
