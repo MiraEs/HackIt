@@ -10,31 +10,27 @@ import UIKit
 import Firebase
 
 class FeedTableViewController: UITableViewController {
+    private let reuseIdentifier = "feedCell"
     var databaseRef: FIRDatabaseReference!
     var posts = [Post]()
-    @IBOutlet weak var profileImageView: UIImageView!
 
-    @IBOutlet weak var gardenImageView: UIImageView!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.title = "Posts"
+        
+        self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        posts.removeAll()
-//        getPosts()
-//        self.tableView.reloadData()
-//        tableView.estimatedRowHeight = 200
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        dump("posts >>>> \(self.posts)")
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        posts.removeAll()
+        getPosts()
+        self.tableView.reloadData()
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+        dump("posts >>>> \(self.posts)")
+    }
 
     //MARK: - Fetch data from FB
     func getPosts() {
@@ -54,21 +50,21 @@ class FeedTableViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         //return posts.count
-        return 3
+        return posts.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FeedTableViewCell
 
         let post = posts[indexPath.row]
         // Configure the cell...
-        //cell.commentLabel.text = post.comment
+        cell.commentLabel.text = post.comment
         
         let storage = FIRStorage.storage()
         let storageRef = storage.reference()
@@ -78,7 +74,7 @@ class FeedTableViewController: UITableViewController {
                 print(error)
             } else {
                 let image = UIImage(data: data!)
-//                self.gardenImageView.image = image
+                cell.gardenImageView.image = image
             }
         }
 
