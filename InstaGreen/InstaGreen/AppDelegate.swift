@@ -30,6 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //self.shouldPerformSegue(withIdentifier: self.segue, sender: self)
             }
         })
+        
+        //Styling
+        UILabel.appearance().font = UIFont(name: "Avenir Next", size: 16.0)
+        
+        let color = UIColor(red:0.10, green:0.74, blue:0.61, alpha:1.0)
+        let tabBarAppearnce = UITabBar.appearance()
+        tabBarAppearnce.barTintColor = UIColor.white
+        tabBarAppearnce.tintColor = color
 
         
         return true
