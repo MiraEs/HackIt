@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UploadTableViewCell: UITableViewCell {
+class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var gardenImageView: UIImageView!
