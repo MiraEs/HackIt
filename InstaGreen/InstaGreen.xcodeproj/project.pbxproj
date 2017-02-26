@@ -14,6 +14,8 @@
 		E3F44F0B1E63202500E797B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F44F0A1E63202500E797B8 /* Assets.xcassets */; };
 		E3F44F0E1E63202500E797B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F44F0C1E63202500E797B8 /* LaunchScreen.storyboard */; };
 		E3F44F161E63258F00E797B8 /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F44F151E63258F00E797B8 /* GoogleService-Info (1).plist */; };
+		E3F44F181E63265D00E797B8 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F44F171E63265D00E797B8 /* APIRequestManager.swift */; };
+		E3F44F1A1E63268E00E797B8 /* Garden.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F44F191E63268E00E797B8 /* Garden.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		E3F44F0D1E63202500E797B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3F44F0F1E63202500E797B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3F44F151E63258F00E797B8 /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (1).plist"; path = "../../../../../Downloads/GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		E3F44F171E63265D00E797B8 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIRequestManager.swift; path = "../../../../AC3.2-groupFour-homelessness/Employed/Employed/APIRequestManager.swift"; sourceTree = "<group>"; };
+		E3F44F191E63268E00E797B8 /* Garden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Garden.swift; sourceTree = "<group>"; };
 		E7C88494A224F46CE2338828 /* Pods_InstaGreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaGreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +85,9 @@
 			isa = PBXGroup;
 			children = (
 				E3F44F031E63202500E797B8 /* AppDelegate.swift */,
+				E3F44F171E63265D00E797B8 /* APIRequestManager.swift */,
 				E3F44F051E63202500E797B8 /* ViewController.swift */,
+				E3F44F191E63268E00E797B8 /* Garden.swift */,
 				E3F44F071E63202500E797B8 /* Main.storyboard */,
 				E3F44F0A1E63202500E797B8 /* Assets.xcassets */,
 				E3F44F0C1E63202500E797B8 /* LaunchScreen.storyboard */,
@@ -215,6 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3F44F1A1E63268E00E797B8 /* Garden.swift in Sources */,
+				E3F44F181E63265D00E797B8 /* APIRequestManager.swift in Sources */,
 				E3F44F061E63202500E797B8 /* ViewController.swift in Sources */,
 				E3F44F041E63202500E797B8 /* AppDelegate.swift in Sources */,
 			);
