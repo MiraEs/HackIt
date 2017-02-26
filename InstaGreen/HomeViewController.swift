@@ -131,17 +131,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         uploadVC.currentGarden = self.currentGarden
         
         if self.tabBarController != nil {
-            tabBarController?.selectedIndex = 1
+            tabBarController?.selectedIndex = 2
         }
-        
-//        if self.window!.rootViewController as? UITabBarController != nil {
-//            var tababarController = self.window!.rootViewController as UITabBarController
-//            tababarController.selectedIndex = 1
-//        }
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let tbvc = storyboard.instantiateViewController(withIdentifier: "UploadVC")
-//        self.present(tbvc, animated: true, completion: nil)
         
     }
     
