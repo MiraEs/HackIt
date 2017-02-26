@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AtN-sr-H8C">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AtN-sr-H8C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -517,7 +517,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ReB-zt-tKt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nature" translatesAutoresizingMaskIntoConstraints="NO" id="ReB-zt-tKt">
                                 <rect key="frame" x="50" y="114" width="275" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="JUD-Pz-rv3"/>
@@ -540,7 +540,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="28g-Ex-WVW"/>
                                 </constraints>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="loginTapped:" destination="7fM-uP-4S6" eventType="touchUpInside" id="Z78-bd-GGD"/>
                                 </connections>
@@ -550,23 +552,33 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="t6P-Qe-e8h"/>
                                 </constraints>
-                                <state key="normal" title="Register"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="registerTapped:" destination="7fM-uP-4S6" eventType="touchUpInside" id="Qcw-bm-0YB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="InstaGreen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAA-TF-AqM">
+                                <rect key="frame" x="76" y="70" width="224" height="49"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="40"/>
+                                <color key="textColor" red="0.62131082953184635" green="1" blue="0.18592477370767813" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gC1-F2-EAv" firstAttribute="leading" secondItem="uNk-Nb-ZPj" secondAttribute="leading" constant="50" id="3B0-jh-GYD"/>
                             <constraint firstItem="m8B-41-Q3d" firstAttribute="top" secondItem="feZ-hL-ZGT" secondAttribute="bottom" priority="250" constant="162" id="4oX-pV-XsL"/>
                             <constraint firstItem="m8B-41-Q3d" firstAttribute="top" secondItem="dDo-hq-uwO" secondAttribute="bottom" priority="250" constant="162" id="7wt-Dw-mZs"/>
                             <constraint firstItem="gC1-F2-EAv" firstAttribute="top" secondItem="bI6-ed-8rd" secondAttribute="bottom" constant="25" id="8fc-pn-CQ6"/>
                             <constraint firstItem="dDo-hq-uwO" firstAttribute="leading" secondItem="gC1-F2-EAv" secondAttribute="leading" id="8hQ-NO-UMS"/>
+                            <constraint firstItem="ReB-zt-tKt" firstAttribute="top" secondItem="FAA-TF-AqM" secondAttribute="bottom" constant="-5" id="FIa-RY-Lz9"/>
                             <constraint firstItem="ReB-zt-tKt" firstAttribute="top" secondItem="krW-yf-efk" secondAttribute="bottom" constant="50" id="MfR-uW-g3k"/>
                             <constraint firstAttribute="trailing" secondItem="bI6-ed-8rd" secondAttribute="trailing" constant="50" id="Nnp-BX-1dU"/>
                             <constraint firstAttribute="trailing" secondItem="gC1-F2-EAv" secondAttribute="trailing" constant="50" id="SZp-B3-roB"/>
                             <constraint firstItem="feZ-hL-ZGT" firstAttribute="trailing" secondItem="gC1-F2-EAv" secondAttribute="trailing" id="UDr-zq-aKc"/>
+                            <constraint firstItem="FAA-TF-AqM" firstAttribute="centerX" secondItem="uNk-Nb-ZPj" secondAttribute="centerX" id="Xk0-lC-OFW"/>
                             <constraint firstItem="ReB-zt-tKt" firstAttribute="leading" secondItem="uNk-Nb-ZPj" secondAttribute="leading" constant="50" id="bgh-Rm-121"/>
                             <constraint firstItem="bI6-ed-8rd" firstAttribute="top" secondItem="ReB-zt-tKt" secondAttribute="bottom" constant="34" id="oxj-QW-cl9"/>
                             <constraint firstItem="bI6-ed-8rd" firstAttribute="leading" secondItem="uNk-Nb-ZPj" secondAttribute="leading" constant="50" id="sDb-Wf-H8r"/>
@@ -692,5 +704,6 @@
         <image name="ProfileImage" width="121" height="121"/>
         <image name="Upload" width="25" height="25"/>
         <image name="camera_icon" width="90" height="82"/>
+        <image name="nature" width="256" height="256"/>
     </resources>
 </document>

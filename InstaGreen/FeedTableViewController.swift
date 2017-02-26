@@ -13,13 +13,15 @@ class FeedTableViewController: UITableViewController {
     private let reuseIdentifier = "feedCell"
     var databaseRef: FIRDatabaseReference!
     var posts: [Post] = []
+    
+    var randomUsers = ["flowerFreak", "some dude", "another person", "garden awesome"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "Posts"
-        let uid = FIRAuth.auth()?.currentUser?.uid
-        self.databaseRef = FIRDatabase.database().reference().child("users").child(uid!)
+        //let uid = FIRAuth.auth()?.currentUser?.uid
+        self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         

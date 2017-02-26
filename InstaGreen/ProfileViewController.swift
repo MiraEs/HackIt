@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import FirebaseStorage
@@ -23,14 +24,18 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var uploadedImagesCollectionView: UICollectionView!
     
+    
+    
     let picker = UIImagePickerController()
-    var images: [UIImage] = []
+    var images: [UIImage] = [UIImage(named: "nature")!, UIImage(named: "tree")!, UIImage(named: "g1")!, UIImage(named: "g2")!]
     var userProfileImageReference: FIRDatabaseReference!
     var userUploadsReference: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.profileImageButton.setImage(UIImage(named: "default"), for: .normal)
+        self.likesLabel.text = "5💚"
+        self.rankLabel.text = "Seedling"
         checkUser()
         uploadedImagesCollectionView.delegate = self
         uploadedImagesCollectionView.dataSource = self
@@ -38,6 +43,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         userUploadsReference = FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("uploads")
         
     }
+
     
     func checkUser() {
         if (FIRAuth.auth()?.currentUser?.isAnonymous)! {
