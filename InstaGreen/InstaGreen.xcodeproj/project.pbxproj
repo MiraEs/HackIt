@@ -97,14 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				E3F44F031E63202500E797B8 /* AppDelegate.swift */,
-				E3F44F191E63268E00E797B8 /* Garden.swift */,
-				9BF17F971E63252D00524FC6 /* HomeViewController.swift */,
-				9BF17F991E63254700524FC6 /* FeedTableViewController.swift */,
-				E3F44F211E63529F00E797B8 /* Post.swift */,
-				9BF17F9B1E63255800524FC6 /* UploadViewController.swift */,
-				9BF17FA51E634A6800524FC6 /* FeedTableViewCell.swift */,
-				9BF17F9D1E63256400524FC6 /* ProfileViewController.swift */,
-				9BF17FA31E63343A00524FC6 /* GardensTableViewCell.swift */,
+				E3F44F241E63554E00E797B8 /* Model */,
+				E3F44F231E63554200E797B8 /* Views */,
+				E3F44F251E63555900E797B8 /* Cell */,
 				E3F44F071E63202500E797B8 /* Main.storyboard */,
 				E3F44F0A1E63202500E797B8 /* Assets.xcassets */,
 				E3F44F0C1E63202500E797B8 /* LaunchScreen.storyboard */,
@@ -113,6 +108,35 @@
 				E3F44F1B1E632A7000E797B8 /* APIRequestManager.swift */,
 			);
 			path = InstaGreen;
+			sourceTree = "<group>";
+		};
+		E3F44F231E63554200E797B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9BF17F971E63252D00524FC6 /* HomeViewController.swift */,
+				9BF17F991E63254700524FC6 /* FeedTableViewController.swift */,
+				9BF17F9B1E63255800524FC6 /* UploadViewController.swift */,
+				9BF17F9D1E63256400524FC6 /* ProfileViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E3F44F241E63554E00E797B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3F44F191E63268E00E797B8 /* Garden.swift */,
+				E3F44F211E63529F00E797B8 /* Post.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E3F44F251E63555900E797B8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9BF17FA51E634A6800524FC6 /* FeedTableViewCell.swift */,
+				9BF17FA31E63343A00524FC6 /* GardensTableViewCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
