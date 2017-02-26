@@ -27,7 +27,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     let picker = UIImagePickerController()
-    var images: [UIImage] = [UIImage(named: "nature")!, UIImage(named: "tree")!, UIImage(named: "g1")!, UIImage(named: "g2")!]
+    var images: [UIImage] = [UIImage(named: "nature")!, UIImage(named: "tree")!]
     var userProfileImageReference: FIRDatabaseReference!
     var userUploadsReference: FIRDatabaseReference!
     
@@ -36,6 +36,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         self.profileImageButton.setImage(UIImage(named: "default"), for: .normal)
         self.likesLabel.text = "5💚"
         self.rankLabel.text = "Seedling"
+        self.postsLabel.text = "Your uploads"
         checkUser()
         uploadedImagesCollectionView.delegate = self
         uploadedImagesCollectionView.dataSource = self

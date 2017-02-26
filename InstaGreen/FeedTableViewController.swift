@@ -13,6 +13,7 @@ class FeedTableViewController: UITableViewController {
     private let reuseIdentifier = "feedCell"
     var databaseRef: FIRDatabaseReference!
     var posts: [Post] = []
+    var num = 3
     
     var randomUsers = ["flowerFreak", "some dude", "another person", "garden awesome"]
 
@@ -31,6 +32,7 @@ class FeedTableViewController: UITableViewController {
         posts.removeAll()
         getPosts()
         dump("posts >>>> \(self.posts)")
+        
     }
 
     //MARK: - Fetch data from FB
@@ -79,11 +81,18 @@ class FeedTableViewController: UITableViewController {
                 cell.gardenImageView.image = image
             }
         }
+        cell.likesLabel.text = "\(self.num) likes"
+        
+        //names
+        let index = Int(arc4random_uniform(UInt32(randomUsers.count)) + 1)
+        cell.userNameLabel.text = randomUsers[0]
+        
         
         //like imageview
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(likeImageTapped(tapGestureRecognizer:)))
         cell.likedImage.isUserInteractionEnabled = true
         cell.likedImage.addGestureRecognizer(tapGestureRecognizer)
+        
 
         return cell
     }
