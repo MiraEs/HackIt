@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Gardens {
+class Garden {
     let address: String
     let boro: String
     let name: String
@@ -25,15 +25,15 @@ class Gardens {
         let address = dict["address"] as? String ?? ""
         let boro = dict["boro"] as? String ?? ""
         let name = dict["garden_name"] as? String ?? ""
-        let neighborhood = dict["address"] as? String ?? ""
+        let neighborhood = dict["neighborhoodname"] as? String ?? ""
         
         self.init(address: address, boro: boro, name: name, neighborhood:neighborhood)
     }
     
-    static func getGardens(from arr: [[String:Any]]) -> [Gardens] {
-        var allGardens = [Gardens]()
+    static func getGardens(from arr: [[String:Any]]) -> [Garden] {
+        var allGardens = [Garden]()
         for garden in arr {
-            if let thisGarden = Gardens(from: garden) {
+            if let thisGarden = Garden(from: garden) {
                 allGardens.append(thisGarden)
             }
         }
