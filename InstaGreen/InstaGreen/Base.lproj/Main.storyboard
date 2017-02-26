@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AtN-sr-H8C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,17 +47,52 @@
                                     <constraint firstAttribute="height" constant="300" id="spq-1h-E4y"/>
                                 </constraints>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-iR-yQP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-iR-yQP">
                                 <rect key="frame" x="0.0" y="320" width="375" height="298"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cbY-UR-q8u">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gardensCellIdentifier" rowHeight="116" id="cbY-UR-q8u" customClass="GardensTableViewCell" customModule="InstaGreen" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cbY-UR-q8u" id="7Xz-A0-pNO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ji-hH-orK">
+                                                    <rect key="frame" x="16" y="16" width="343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-SM-ox0">
+                                                    <rect key="frame" x="16" y="53" width="343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50w-Qi-2UO">
+                                                    <rect key="frame" x="289" y="69.5" width="70" height="30"/>
+                                                    <state key="normal" title="Directions"/>
+                                                    <connections>
+                                                        <action selector="directionsButtonTapped:" destination="cbY-UR-q8u" eventType="touchUpInside" id="okd-58-SUg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5ji-hH-orK" firstAttribute="leading" secondItem="7Xz-A0-pNO" secondAttribute="leadingMargin" constant="8" id="76I-Kw-Yib"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="50w-Qi-2UO" secondAttribute="bottom" constant="8" id="Ahg-bU-dgX"/>
+                                                <constraint firstItem="pKB-SM-ox0" firstAttribute="top" secondItem="5ji-hH-orK" secondAttribute="bottom" constant="16" id="EQK-Qo-sj3"/>
+                                                <constraint firstItem="5ji-hH-orK" firstAttribute="top" secondItem="7Xz-A0-pNO" secondAttribute="topMargin" constant="8" id="KZh-fs-hUw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="50w-Qi-2UO" secondAttribute="trailing" constant="8" id="Lq0-Ah-wVB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5ji-hH-orK" secondAttribute="trailing" constant="8" id="ZEH-MS-DCM"/>
+                                                <constraint firstItem="pKB-SM-ox0" firstAttribute="leading" secondItem="7Xz-A0-pNO" secondAttribute="leadingMargin" constant="8" id="e23-dt-mk0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pKB-SM-ox0" secondAttribute="trailing" constant="8" id="jES-ZQ-Nbt"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gardenAddressLabel" destination="pKB-SM-ox0" id="zo1-75-Tg9"/>
+                                            <outlet property="gardenNameLabel" destination="5ji-hH-orK" id="bMI-i3-D0G"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -80,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcO-Aq-hyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1479" y="-899"/>
+            <point key="canvasLocation" x="-1479.2" y="-899.10044977511257"/>
         </scene>
         <!--Profile-->
         <scene sceneID="to1-j6-rmt">

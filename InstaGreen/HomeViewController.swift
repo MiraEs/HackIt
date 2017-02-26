@@ -18,21 +18,43 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var gardens: [Garden] = []
     let initialLocation = CLLocation(latitude: 40.7128, longitude: -74.0059)
     let regionRadius: CLLocationDistance = 1000
-    
+    let apiEndPoint = "https://data.cityofnewyork.us/resource/yes4-7zbb.json"
+    let boroDict: [String:String] = ["B": "Brooklyn", "M": "Manhattan", "Q": "Queens", "X":"Bronx"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         locationsTableView.delegate = self
         locationsTableView.dataSource = self
+        locationsTableView.rowHeight = 100
         mapView.delegate = self
         mapView.mapType  = .standard
         mapView.isZoomEnabled = true
         mapView.showsPointsOfInterest = false
         centerMapOnLocation(location: initialLocation)
         addPin(at: "NYC", lat: 40.7128, long: -74.0059)
+        
+        getData()
+        
     }
-
+    
+    func getData() {
+        APIRequestManager.manager.getData(endPoint: apiEndPoint) { (data) in
+            
+            if let validData = data {
+                if let jsonData = try? JSONSerialization.jsonObject(with: validData, options: []),
+                    let validGarden = jsonData as? [[String:Any]] {
+                    
+                    self.gardens = Garden.getGardens(from: validGarden)
+                    
+                    DispatchQueue.main.async {
+                        self.locationsTableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -41,8 +63,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return gardens.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = locationsTableView.dequeueReusableCell(withIdentifier: "gardensCellIdentifier", for: indexPath) as! GardensTableViewCell
+        
+        let garden = gardens[indexPath.row]
+        cell.gardenNameLabel.text = garden.name
+        if let boro = boroDict[garden.boro] {
+            cell.gardenAddressLabel.text = ("\(garden.address), \(boro)")
+        }
+        else {
+            cell.gardenAddressLabel.text = garden.address
+        }
+        
+        
+        return cell
+    }
     
-        return UITableViewCell()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let garden = gardens[indexPath.row]
+        
+        getGeoFor(gedLocation: garden, completionHandler: { (cordinates) -> (Void) in
+            DispatchQueue.main.async {
+                self.addPin(at: garden.name, lat: cordinates.0, long: cordinates.1)
+                self.mapView.reloadInputViews()
+            }
+        })
     }
     
     func getGeoFor(gedLocation: Garden, completionHandler: @escaping ((lat: Double, long: Double)) -> (Void))  {
@@ -74,15 +120,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         centerMapOnLocation(location: pinlocation)
         self.mapView.reloadInputViews()
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
