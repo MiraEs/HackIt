@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FIRApp.configure()
         
-        
         FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
             
             if error != nil {
@@ -31,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //self.shouldPerformSegue(withIdentifier: self.segue, sender: self)
             }
         })
-        
+
         
         return true
     }
