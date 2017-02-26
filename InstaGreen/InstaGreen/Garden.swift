@@ -25,9 +25,9 @@ class Garden {
         let address = dict["address"] as? String ?? ""
         let boro = dict["boro"] as? String ?? ""
         let name = dict["garden_name"] as? String ?? ""
-        let neighborhood = dict["address"] as? String ?? ""
+        let neighborhood = dict["neighborhoodname"] as? String ?? ""
         
-        self.init(address: address, boro: boro, name: name, neighborhood:neighborhood)
+        self.init(address: address, boro: boro, name: name, neighborhood: neighborhood)
     }
     
     static func getGardens(from arr: [[String:Any]]) -> [Garden] {

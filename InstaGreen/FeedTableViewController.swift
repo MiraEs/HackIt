@@ -9,11 +9,30 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController {
-
+    var gardens = [Garden]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getData()
+    }
+    
+    //MARK: - Utilities
+    func getData() {
+        APIRequestManager.manager.getPOD(endPoint: "https://data.cityofnewyork.us/resource/yes4-7zbb.json") { (data) in
             
+            if let validData = data {
+                if let jsonData = try? JSONSerialization.jsonObject(with: validData, options: []),
+                    let validGarden = jsonData as? [[String:Any]] {
+                    
+                    self.gardens = Garden.getGardens(from: validGarden)
+                    dump(self.gardens)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
