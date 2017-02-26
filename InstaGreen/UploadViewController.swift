@@ -9,8 +9,7 @@
 import UIKit
 import Firebase
 import CoreLocation
-
-
+import FirebaseAuth
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
@@ -31,6 +30,23 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         commentTextView.layer.borderWidth = 1.0
         commentTextView.layer.borderColor = UIColor.lightGray.cgColor
         loginAnonymously()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (FIRAuth.auth()?.currentUser?.isAnonymous)! {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let lvc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+            let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")
+            let alertController = UIAlertController(title: "Login Required!", message: nil, preferredStyle: .alert)
+            self.present(alertController, animated: true, completion: nil)
+            
+            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                self.present(lvc, animated: true, completion: nil)
+            }))
+            alertController.addAction(UIAlertAction(title: "Back", style: .default, handler: { (action: UIAlertAction!) in
+                self.present(tbvc, animated: true, completion: nil)
+            }))
+        }
     }
     
     //MARK: - MOVE THESE FUNCTIONS
