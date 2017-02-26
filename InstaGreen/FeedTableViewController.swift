@@ -9,6 +9,11 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController {
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    @IBOutlet weak var gardenImageView: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
