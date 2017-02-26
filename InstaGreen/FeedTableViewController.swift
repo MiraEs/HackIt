@@ -21,7 +21,8 @@ class FeedTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Posts"
-        //let uid = FIRAuth.auth()?.currentUser?.uid
+
+        let uid = FIRAuth.auth()?.currentUser?.uid
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -69,7 +70,30 @@ class FeedTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FeedTableViewCell
         cell.gardenImageView.image = nil
         let post = posts[indexPath.row]
+        
+        print(post.userId)
         cell.commentLabel.text = post.comment
+  //      cell.userNameLabel.text = snapshot.value as? String
+        
+//        let userReference = FIRDatabase.database().reference().child("users").child(post.userId)
+//        
+//        dump(userReference)
+//        userReference.observe(.childAdded, with: { (snapshot) in
+//           // dump(snapshot.key)
+////            if snapshot.key == post.userId {
+////                print("MATCHED")
+//                dump(snapshot.value as? String)
+//                cell.userNameLabel.text = snapshot.value as? String
+//           // }
+//    
+//        })
+
+        
+//        FIRDatabase.database().reference().child("users").observe(.childAdded, with: (snapshot) in
+//            if snapshot.
+//        )
+//        
+        
         let storage = FIRStorage.storage()
         let storageRef = storage.reference()
         let spaceRef = storageRef.child("images/\(post.key)")
@@ -97,10 +121,6 @@ class FeedTableViewController: UITableViewController {
 
         return cell
     }
-    
-   
- 
-
  
 
 }
