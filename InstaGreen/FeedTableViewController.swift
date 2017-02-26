@@ -45,6 +45,10 @@ class FeedTableViewController: UITableViewController {
         })
     }
     
+    func likeImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        print("liked image")
+    }
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -71,9 +75,16 @@ class FeedTableViewController: UITableViewController {
                 cell.gardenImageView.image = image
             }
         }
+        
+        //like imageview
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(likeImageTapped(tapGestureRecognizer:)))
+        cell.likedImage.isUserInteractionEnabled = true
+        cell.likedImage.addGestureRecognizer(tapGestureRecognizer)
 
         return cell
     }
+    
+   
  
 
  

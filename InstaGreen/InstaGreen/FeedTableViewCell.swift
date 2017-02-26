@@ -16,6 +16,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var likedImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,8 +25,8 @@ class FeedTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
+    
 
 }
