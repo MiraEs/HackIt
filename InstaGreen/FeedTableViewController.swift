@@ -12,11 +12,7 @@ import Firebase
 class FeedTableViewController: UITableViewController {
     var databaseRef: FIRDatabaseReference!
     var posts = [Post]()
-    @IBOutlet weak var profileImageView: UIImageView!
-
-    @IBOutlet weak var gardenImageView: UIImageView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,14 +23,14 @@ class FeedTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        posts.removeAll()
-//        getPosts()
-//        self.tableView.reloadData()
-//        tableView.estimatedRowHeight = 200
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        dump("posts >>>> \(self.posts)")
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        posts.removeAll()
+        getPosts()
+        self.tableView.reloadData()
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+        dump("posts >>>> \(self.posts)")
+    }
 
     //MARK: - Fetch data from FB
     func getPosts() {
@@ -59,7 +55,7 @@ class FeedTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return posts.count
     }
 
     
