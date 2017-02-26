@@ -23,6 +23,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     var databaseRef: FIRDatabaseReference!
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
@@ -52,7 +54,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-
+    
     //MARK: - MOVE THESE FUNCTIONS
     func loginAnonymously() {
         FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
@@ -85,13 +87,18 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     func addToFB() {
         //stored to storage
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        guard let name = FIRAuth.auth()?.currentUser?.displayName else { return }
         guard let comment = commentTextView?.text else { return }
         let linkRef = self.databaseRef.childByAutoId()
         let storageRef = FIRStorage.storage().reference().child("images").child(linkRef.key)
         
         if selectedImage != nil {
             
+            //stored to database
+            let values = ["userId": uid, "comment": comment, "name": "flowerFreak"]
+            
             if let uploadData = UIImageJPEGRepresentation(self.uploadButton.currentImage!, 0.5) {
+                
                 
                 storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
                     
@@ -121,6 +128,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         }
     }
+    
     
     //MARK: - Set up picker funcitons
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

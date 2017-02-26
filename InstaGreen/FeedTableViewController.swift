@@ -16,9 +16,10 @@ class FeedTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.title = "Posts"
-        self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        self.databaseRef = FIRDatabase.database().reference().child("users").child(uid!)
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -46,6 +47,8 @@ class FeedTableViewController: UITableViewController {
     
     func likeImageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         print("liked image")
+        
+      
     }
     
     // MARK: - Table view data source
