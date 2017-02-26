@@ -15,6 +15,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     let picker = UIImagePickerController()
     var currentGarden: Garden?
+    var selectedImage: UIImage!
+    
     @IBOutlet weak var commentTextView: UITextView?
     @IBOutlet weak var uploadButton: UIButton!
     
@@ -86,6 +88,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         let linkRef = self.databaseRef.childByAutoId()
         let storageRef = FIRStorage.storage().reference().child("images").child(linkRef.key)
         
+        if selectedImage != nil {
+        
         if let uploadData = UIImageJPEGRepresentation(self.uploadButton.currentImage!, 0.5) {
             
             storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
@@ -114,6 +118,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 
             })
         }
+        }
     }
  
     //MARK: - Set up picker funcitons
@@ -121,6 +126,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.uploadButton.imageView?.contentMode = .scaleAspectFit
             self.uploadButton.setImage(image, for: .normal)
+            self.selectedImage = image
             dump(image)
             
           //photo location??
