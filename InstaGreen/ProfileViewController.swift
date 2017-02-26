@@ -34,9 +34,20 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.profileImageButton.setImage(UIImage(named: "default"), for: .normal)
+        
         self.likesLabel.text = "5💚"
         self.rankLabel.text = "Seedling"
-        self.postsLabel.text = "Your uploads"
+        self.postsLabel.text = "2"
+        
+        
+        //UILabel.appearance().font = UIFont(name: "Avenir Next", size: 16.0)
+        //styling
+        self.likesLabel.font = UIFont(name: "Avenir Next", size: 12.0)
+        self.rankLabel.font = UIFont(name: "Avenir Next", size: 12.0)
+        self.postsLabel.font = UIFont(name: "Avenir Next", size: 12.0)
+        
+        
+        
         checkUser()
         uploadedImagesCollectionView.delegate = self
         uploadedImagesCollectionView.dataSource = self
