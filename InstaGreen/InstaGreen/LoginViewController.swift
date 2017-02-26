@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
         
         let rightBarButton = UIBarButtonItem(customView: cancelButton)
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
     }
     
     
