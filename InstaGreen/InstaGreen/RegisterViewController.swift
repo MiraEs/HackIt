@@ -18,15 +18,16 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var password: UITextField!
+    var databaseRef: FIRDatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
     
     
     
     @IBAction func finishRegsiter(_ sender: UIButton) {
+        let ref = FIRDatabase.database().reference().child("users").childByAutoId()
         if let name = name.text, let email = email.text, let password = password.text {
             
             FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -36,12 +37,30 @@ class RegisterViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 }
                 else {
-                    let alertController = showAlert(title: "Signup Successful!", message: "Successfully Registered. Please Login to Use Our App!")
-                    self.present(alertController, animated: true, completion: nil)
+                    let values = ["name": name, "email": email]
+                    
+                    ref.setValue(values) {(error, reference) in
+                        if let error = error {
+                            print(error)
+                            
+                            //alert
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")
+                            let alertController = showAlert(title: "Signup Successful!", message: "Successfully Registered.")
+                            alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                                self.present(tbvc, animated: true, completion: nil)
+                            }))
+                            
+                            //automatically login user:
+                            FIRAuth.auth()?.signIn(withEmail: self.email.text!, password: self.password.text!, completion: nil)
+                        }
+                    }
                 }
             })
         }
     }
+    
+    
     
     
 }

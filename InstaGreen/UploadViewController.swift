@@ -23,6 +23,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     var databaseRef: FIRDatabaseReference!
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
@@ -69,8 +71,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     func addToFB() {
         //stored to storage
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        guard let name = FIRAuth.auth()?.currentUser?.displayName else { return }
         guard let comment = commentTextView?.text else { return }
         let linkRef = self.databaseRef.childByAutoId()
+        
         let storageRef = FIRStorage.storage().reference().child("images").child(linkRef.key)
         
         if selectedImage != nil {
@@ -85,7 +89,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 }
                 
                 //stored to database
-                let values = ["userId": uid, "comment": comment]
+                let values = ["userId": uid, "comment": comment, "name": "flowerFreak"]
                 
                 linkRef.setValue(values) { (error, reference) in
                     if let error = error {
