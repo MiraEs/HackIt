@@ -21,10 +21,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var uploadButton: UIButton!
     
     var databaseRef: FIRDatabaseReference!
-    
-    
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
@@ -108,7 +105,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                     }
                     
                     //stored to database
-                    let values = ["userId": uid, "comment": comment]
+                    let values = ["comment": comment, "user": uid]
                     
                     linkRef.setValue(values) { (error, reference) in
                         if let error = error {
