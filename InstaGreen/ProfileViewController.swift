@@ -29,7 +29,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func checkUser() {
-        if FIRAuth.auth()?.currentUser == nil {
+        if (FIRAuth.auth()?.currentUser?.isAnonymous)! {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let lvc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
             let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")
