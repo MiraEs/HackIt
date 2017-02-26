@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AtN-sr-H8C">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AtN-sr-H8C">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -184,7 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="490" id="0XW-qC-wRr">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="490" id="0XW-qC-wRr" customClass="UploadTableViewCell" customModule="InstaGreen" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="490"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0XW-qC-wRr" id="cOb-TI-Yy2">
@@ -222,7 +222,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h6j-tG-9NJ">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Like" translatesAutoresizingMaskIntoConstraints="NO" id="h6j-tG-9NJ">
                                             <rect key="frame" x="0.0" y="366" width="35" height="35"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="35" id="0Ir-BH-LBz"/>
@@ -259,6 +259,14 @@
                                         <constraint firstItem="eXS-Dk-qPh" firstAttribute="leading" secondItem="kgp-Mb-HV0" secondAttribute="trailing" constant="8" id="za3-lo-XQa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="commentLabel" destination="13a-8B-daT" id="lBC-bc-PQh"/>
+                                    <outlet property="gardenImageView" destination="kSQ-2e-e1S" id="djO-rK-TLZ"/>
+                                    <outlet property="likesLabel" destination="qXF-GE-34f" id="b5q-g3-AEG"/>
+                                    <outlet property="locationLabel" destination="vdk-ac-bpL" id="WOc-SE-DfD"/>
+                                    <outlet property="profileImageView" destination="kgp-Mb-HV0" id="tUx-Tn-U87"/>
+                                    <outlet property="userNameLabel" destination="eXS-Dk-qPh" id="svF-eo-VGx"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -370,6 +378,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Like" width="24" height="24"/>
         <image name="camera_icon" width="90" height="82"/>
     </resources>
 </document>
