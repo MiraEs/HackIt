@@ -27,14 +27,14 @@ class FeedTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        posts.removeAll()
-        getPosts()
-        self.tableView.reloadData()
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
-        dump("posts >>>> \(self.posts)")
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        posts.removeAll()
+//        getPosts()
+//        self.tableView.reloadData()
+//        tableView.estimatedRowHeight = 200
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        dump("posts >>>> \(self.posts)")
+//    }
 
     //MARK: - Fetch data from FB
     func getPosts() {
@@ -53,7 +53,8 @@ class FeedTableViewController: UITableViewController {
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return posts.count
+        //return posts.count
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
