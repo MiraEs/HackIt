@@ -18,16 +18,15 @@ class FeedTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.navigationItem.title = "Posts"
-        
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         posts.removeAll()
         getPosts()
-        
         dump("posts >>>> \(self.posts)")
     }
 

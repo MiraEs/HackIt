@@ -30,11 +30,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         commentTextView?.textColor = UIColor.lightGray
         commentTextView?.layer.borderWidth = 1.0
         commentTextView?.layer.borderColor = UIColor.lightGray.cgColor
-        //loginAnonymously()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if FIRAuth.auth()?.currentUser == nil {
+        if (FIRAuth.auth()?.currentUser?.isAnonymous)! {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let lvc = storyboard.instantiateViewController(withIdentifier: "LoginVC")
             let tbvc = storyboard.instantiateViewController(withIdentifier: "TabBarVC")
@@ -50,21 +50,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    //MARK: - MOVE THESE FUNCTIONS
-    func loginAnonymously() {
-        FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
-            
-            if error != nil {
-                print("Error attempting to log in anonymously: \(error!)")
-            }
-            if user != nil {
-                print("Signed in anonymously!")
-                
-                 //self.shouldPerformSegue(withIdentifier: self.segue, sender: self)
-            }
-        })
-        
-    }
 
     //MARK: - Upload function
     @IBAction func uploadTapped(_ sender: UIButton) {
