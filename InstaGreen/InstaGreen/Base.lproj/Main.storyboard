@@ -21,9 +21,40 @@
                     <view key="view" contentMode="scaleToFill" id="b7H-aN-wvw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zuN-LI-Zhd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="337"/>
+                                <color key="backgroundColor" red="0.82796637055837563" green="0.82796637055837563" blue="0.82796637055837563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="337" id="yt4-Ts-Whf"/>
+                                </constraints>
+                                <state key="normal" image="camera_icon"/>
+                                <connections>
+                                    <action selector="uploadTapped:" destination="sRu-nX-4Rl" eventType="touchUpInside" id="ks8-oh-pAK"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-B8-r45">
+                                <rect key="frame" x="0.0" y="401" width="375" height="217"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zuN-LI-Zhd" firstAttribute="top" secondItem="Khj-0h-ZH5" secondAttribute="bottom" id="23L-rj-L52"/>
+                            <constraint firstItem="gEo-Mw-An1" firstAttribute="top" secondItem="wOK-B8-r45" secondAttribute="bottom" id="2Fu-XB-P9J"/>
+                            <constraint firstItem="wOK-B8-r45" firstAttribute="leading" secondItem="b7H-aN-wvw" secondAttribute="leading" id="7EG-xX-Bgu"/>
+                            <constraint firstAttribute="trailing" secondItem="wOK-B8-r45" secondAttribute="trailing" id="D3e-S4-xdU"/>
+                            <constraint firstItem="wOK-B8-r45" firstAttribute="top" secondItem="zuN-LI-Zhd" secondAttribute="bottom" id="IVK-WT-gnA"/>
+                            <constraint firstAttribute="trailing" secondItem="zuN-LI-Zhd" secondAttribute="trailing" id="h2C-mi-aMn"/>
+                            <constraint firstItem="zuN-LI-Zhd" firstAttribute="leading" secondItem="b7H-aN-wvw" secondAttribute="leading" id="zp6-Kq-x8G"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="97I-Tv-uV7"/>
+                    <connections>
+                        <outlet property="commentTextView" destination="wOK-B8-r45" id="qWR-0d-Inn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODy-Ah-UCR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,4 +294,7 @@
             <point key="canvasLocation" x="-1240.8" y="308.9955022488756"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera_icon" width="90" height="82"/>
+    </resources>
 </document>
