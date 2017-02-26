@@ -15,8 +15,8 @@ import CoreLocation
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     let picker = UIImagePickerController()
-    let pictureLocation: String?
-    @IBOutlet weak var commentTextView: UITextView!
+    var currentGarden: Garden?
+    @IBOutlet weak var commentTextView: UITextView?
     @IBOutlet weak var uploadButton: UIButton!
     
     var databaseRef: FIRDatabaseReference!
@@ -26,11 +26,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
         picker.delegate = self
-        commentTextView.delegate = self
-        commentTextView.text = "Add a description.."
-        commentTextView.textColor = UIColor.lightGray
-        commentTextView.layer.borderWidth = 1.0
-        commentTextView.layer.borderColor = UIColor.lightGray.cgColor
+        commentTextView?.delegate = self
+        commentTextView?.text = "Add a description.."
+        commentTextView?.textColor = UIColor.lightGray
+        commentTextView?.layer.borderWidth = 1.0
+        commentTextView?.layer.borderColor = UIColor.lightGray.cgColor
         loginAnonymously()
     }
     
@@ -66,7 +66,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     func addToFB() {
         //stored to storage
         guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
-        guard let comment = commentTextView.text else { return }
+        guard let comment = commentTextView?.text else { return }
         let linkRef = self.databaseRef.childByAutoId()
         let storageRef = FIRStorage.storage().reference().child("images").child(linkRef.key)
         
@@ -123,9 +123,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     // MARK: - UITextFieldDelegate
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if commentTextView.textColor == UIColor.lightGray {
-            commentTextView.text = nil
-            commentTextView.textColor = UIColor.black
+        if commentTextView?.textColor == UIColor.lightGray {
+            commentTextView?.text = nil
+            commentTextView?.textColor = UIColor.black
         }
     }
     

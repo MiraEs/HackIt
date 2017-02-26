@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationsTableView: UITableView!
     
-    var currentLocation: String?
+    var currentGarden: Garden?
     var gardens: [Garden] = []
     let initialLocation = CLLocation(latitude: 40.7128, longitude: -74.0059)
     let regionRadius: CLLocationDistance = 1000
@@ -77,7 +77,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         //push this location data to upload screen for photo property
-        self.currentLocation = garden.address
         
         
         return cell
@@ -91,6 +90,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             DispatchQueue.main.async {
                 self.addPin(at: garden.name, lat: cordinates.0, long: cordinates.1)
                 self.mapView.reloadInputViews()
+                self.currentGarden = garden
             }
         })
     }
@@ -127,6 +127,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         print("clicked annotation")
+        let uploadVC = UploadViewController()
+        uploadVC.currentGarden = self.currentGarden
+        navigationController?.pushViewController(uploadVC, animated: true)
+        
     }
+    
+    
     
 }
