@@ -39,9 +39,44 @@
                     <view key="view" contentMode="scaleToFill" id="V8l-2E-kaV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZcJ-ga-nkG">
+                                <rect key="frame" x="0.0" y="20" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="spq-1h-E4y"/>
+                                </constraints>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IM5-iR-yQP">
+                                <rect key="frame" x="0.0" y="320" width="375" height="298"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cbY-UR-q8u">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cbY-UR-q8u" id="7Xz-A0-pNO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IM5-iR-yQP" firstAttribute="leading" secondItem="V8l-2E-kaV" secondAttribute="leading" id="FAb-Fn-TmM"/>
+                            <constraint firstItem="IM5-iR-yQP" firstAttribute="top" secondItem="ZcJ-ga-nkG" secondAttribute="bottom" id="NKP-Ay-820"/>
+                            <constraint firstItem="ZcJ-ga-nkG" firstAttribute="leading" secondItem="V8l-2E-kaV" secondAttribute="leading" id="YlN-R8-P9A"/>
+                            <constraint firstAttribute="trailing" secondItem="IM5-iR-yQP" secondAttribute="trailing" id="ZvP-zA-2eW"/>
+                            <constraint firstAttribute="trailing" secondItem="ZcJ-ga-nkG" secondAttribute="trailing" id="flj-Al-N5a"/>
+                            <constraint firstItem="ZcJ-ga-nkG" firstAttribute="top" secondItem="v5d-N3-3wN" secondAttribute="bottom" id="iDA-gk-aRL"/>
+                            <constraint firstItem="Hag-XR-Uoz" firstAttribute="top" secondItem="IM5-iR-yQP" secondAttribute="bottom" id="jEx-fh-TKe"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="y7b-XP-S4n"/>
+                    <connections>
+                        <outlet property="locationsTableView" destination="IM5-iR-yQP" id="mkr-V0-fHy"/>
+                        <outlet property="mapView" destination="ZcJ-ga-nkG" id="QVu-AY-48f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcO-Aq-hyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
