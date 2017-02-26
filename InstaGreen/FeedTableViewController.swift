@@ -12,7 +12,7 @@ import Firebase
 class FeedTableViewController: UITableViewController {
     private let reuseIdentifier = "feedCell"
     var databaseRef: FIRDatabaseReference!
-    var posts = [Post]()
+    var posts: [Post] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +20,14 @@ class FeedTableViewController: UITableViewController {
         self.navigationItem.title = "Posts"
         
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
         posts.removeAll()
         getPosts()
-        self.tableView.reloadData()
-        tableView.estimatedRowHeight = 200
-        tableView.rowHeight = UITableViewAutomaticDimension
+        
         dump("posts >>>> \(self.posts)")
     }
 
@@ -47,25 +47,19 @@ class FeedTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        //return posts.count
-        return posts.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return posts.count
-
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! FeedTableViewCell
-
+        cell.gardenImageView.image = nil
         let post = posts[indexPath.row]
-        // Configure the cell...
         cell.commentLabel.text = post.comment
-        
         let storage = FIRStorage.storage()
         let storageRef = storage.reference()
         let spaceRef = storageRef.child("images/\(post.key)")

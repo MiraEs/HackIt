@@ -12,7 +12,7 @@ import CoreLocation
 
 
 
-class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     let picker = UIImagePickerController()
     @IBOutlet weak var commentTextView: UITextView!
@@ -25,6 +25,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         self.databaseRef = FIRDatabase.database().reference().child("FeedPosts")
         picker.delegate = self
+        commentTextView.delegate = self
+        commentTextView.text = "Add a description.."
+        commentTextView.textColor = UIColor.lightGray
+        commentTextView.layer.borderWidth = 1.0
+        commentTextView.layer.borderColor = UIColor.lightGray.cgColor
         loginAnonymously()
     }
     
@@ -112,6 +117,22 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("canceled picker")
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if commentTextView.textColor == UIColor.lightGray {
+            commentTextView.text = nil
+            commentTextView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add a description.."
+            textView.textColor = UIColor.lightGray
+        }
     }
 
 }
