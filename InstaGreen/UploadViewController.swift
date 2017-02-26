@@ -13,8 +13,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     let picker = UIImagePickerController()
     @IBOutlet weak var commentTextView: UITextView!
-    
-
     @IBOutlet weak var uploadButton: UIButton!
     
 
