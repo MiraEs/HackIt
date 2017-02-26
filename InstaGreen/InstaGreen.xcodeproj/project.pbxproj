@@ -33,7 +33,7 @@
 		9BF17F991E63254700524FC6 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewController.swift; path = ../FeedTableViewController.swift; sourceTree = "<group>"; };
 		9BF17F9B1E63255800524FC6 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadViewController.swift; path = ../UploadViewController.swift; sourceTree = "<group>"; };
 		9BF17F9D1E63256400524FC6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
->>>>>>> 8b3d1a3e62ec474db18b7a3ff8e0725500d101be
+
 		E3F44F001E63202500E797B8 /* InstaGreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaGreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F44F031E63202500E797B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3F44F081E63202500E797B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 				E3F44F181E63265D00E797B8 /* APIRequestManager.swift in Sources */,
 				E3F44F061E63202500E797B8 /* ViewController.swift in Sources */,
 
->>>>>>> 8b3d1a3e62ec474db18b7a3ff8e0725500d101be
+
 				E3F44F041E63202500E797B8 /* AppDelegate.swift in Sources */,
 				9BF17F9C1E63255800524FC6 /* UploadViewController.swift in Sources */,
 				9BF17F9E1E63256400524FC6 /* ProfileViewController.swift in Sources */,
