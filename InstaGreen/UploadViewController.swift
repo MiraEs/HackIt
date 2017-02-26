@@ -14,6 +14,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     let picker = UIImagePickerController()
     @IBOutlet weak var commentTextView: UITextView!
     
+
+    @IBOutlet weak var uploadButton: UIButton!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,13 +31,18 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         present(picker, animated: true, completion: nil)
     }
     
+
     //MARK: - Upload to firebase
-    
+
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+    }
+ 
     
     //MARK: - Set up picker funcitons
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            //self.uploadImageView.contentMode = .scaleAspectFit
+            self.uploadButton.imageView?.contentMode = .scaleAspectFit
+            self.uploadButton.setImage(image, for: .normal)
             dump(image)
         }
         
