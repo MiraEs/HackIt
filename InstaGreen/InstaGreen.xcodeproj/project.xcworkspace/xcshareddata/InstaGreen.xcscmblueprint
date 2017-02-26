@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4D136CCC21ED72D54001650017FB13AE994B0E53",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DE5BB8B9A57DD779848A243A54D79680CB107D28" : 9223372036854775807,
+    "4D136CCC21ED72D54001650017FB13AE994B0E53" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "869DEAF2-9E4D-49FE-9979-4DBEFEA88546",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DE5BB8B9A57DD779848A243A54D79680CB107D28" : "",
+    "4D136CCC21ED72D54001650017FB13AE994B0E53" : "HackIt\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "InstaGreen",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "InstaGreen\/InstaGreen.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MiraEs\/HackIt.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4D136CCC21ED72D54001650017FB13AE994B0E53"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/C4Q\/AC3.2-groupThree-ImmigrantServices.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DE5BB8B9A57DD779848A243A54D79680CB107D28"
+    }
+  ]
+}
