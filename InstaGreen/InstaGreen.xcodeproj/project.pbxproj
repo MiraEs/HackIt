@@ -24,6 +24,7 @@
 		E3F44F1C1E632A7000E797B8 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F44F1B1E632A7000E797B8 /* APIRequestManager.swift */; };
 		E3F44F1E1E632BC300E797B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F44F1D1E632BC300E797B8 /* GoogleService-Info.plist */; };
 		E3F44F221E63529F00E797B8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F44F211E63529F00E797B8 /* Post.swift */; };
+		E3F44F271E63794500E797B8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F44F261E63794500E797B8 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		E3F44F1B1E632A7000E797B8 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
 		E3F44F1D1E632BC300E797B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3F44F211E63529F00E797B8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		E3F44F261E63794500E797B8 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E7C88494A224F46CE2338828 /* Pods_InstaGreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstaGreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 				9BF17F991E63254700524FC6 /* FeedTableViewController.swift */,
 				9BF17F9B1E63255800524FC6 /* UploadViewController.swift */,
 				9BF17F9D1E63256400524FC6 /* ProfileViewController.swift */,
+				E3F44F261E63794500E797B8 /* RegisterViewController.swift */,
 				9BF17FA71E63615900524FC6 /* LoginViewController.swift */,
 			);
 			name = Views;
@@ -272,6 +275,7 @@
 				E3F44F1A1E63268E00E797B8 /* Garden.swift in Sources */,
 				9BF17FA61E634A6800524FC6 /* FeedTableViewCell.swift in Sources */,
 				E3F44F041E63202500E797B8 /* AppDelegate.swift in Sources */,
+				E3F44F271E63794500E797B8 /* RegisterViewController.swift in Sources */,
 				9BF17F9C1E63255800524FC6 /* UploadViewController.swift in Sources */,
 				E3F44F1C1E632A7000E797B8 /* APIRequestManager.swift in Sources */,
 				9BF17FA41E63343A00524FC6 /* GardensTableViewCell.swift in Sources */,
