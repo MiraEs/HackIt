@@ -542,7 +542,7 @@
         <!--Upload-->
         <scene sceneID="Ott-zU-SbC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ufS-n6-npY" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UploadVC" automaticallyAdjustsScrollViewInsets="NO" id="ufS-n6-npY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Upload" id="CGd-Tu-58r"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nHu-Pj-u6O">
