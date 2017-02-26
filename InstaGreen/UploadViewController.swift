@@ -13,6 +13,7 @@ class UploadViewController: UIViewController {
     
     @IBOutlet weak var commentTextView: UITextView!
     
+    @IBOutlet weak var uploadButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,9 @@ class UploadViewController: UIViewController {
         
         
         
+    }
+    
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
     }
     
     
