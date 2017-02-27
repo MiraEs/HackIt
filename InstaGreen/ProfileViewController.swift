@@ -27,16 +27,16 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     
     let picker = UIImagePickerController()
-    var images: [UIImage] = [UIImage(named: "nature")!, UIImage(named: "tree")!]
+    var images: [UIImage] = [UIImage(named: "nature")!, UIImage(named: "g1")!, UIImage(named: "g3")!]
     var userProfileImageReference: FIRDatabaseReference!
     var userUploadsReference: FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.profileImageButton.setImage(UIImage(named: "default"), for: .normal)
+        self.profileImageButton.setImage(UIImage(named: "flower"), for: .normal)
         
         self.likesLabel.text = "5💚"
-        self.rankLabel.text = "Seedling"
+        self.rankLabel.text = "Seed"
         self.postsLabel.text = "2"
         
         
