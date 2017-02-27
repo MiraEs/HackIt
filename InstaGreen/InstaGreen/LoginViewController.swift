@@ -13,12 +13,13 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var logoNameLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        logoNameLabel.font = UIFont(name: "Avenir Next", size: 40.0)
         let rightBarButton = UIBarButtonItem(customView: cancelButton)
         self.navigationItem.rightBarButtonItem = rightBarButton
         
