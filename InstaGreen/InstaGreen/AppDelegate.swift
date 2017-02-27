@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.barTintColor = color
         navBarAppearance.tintColor = color
+        
 
         
         return true
