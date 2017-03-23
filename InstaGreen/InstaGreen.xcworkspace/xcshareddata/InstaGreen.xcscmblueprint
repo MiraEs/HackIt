@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4D136CCC21ED72D54001650017FB13AE994B0E53",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DE5BB8B9A57DD779848A243A54D79680CB107D28" : 9223372036854775807,
+    "4D136CCC21ED72D54001650017FB13AE994B0E53" : 9223372036854775807,
+    "4D754A481DF78E9EBB9161285712C564F888BBF5" : 9223372036854775807,
+    "37DE758C9FDB00220CDE4B8C062CC17F11A8162E" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A11A9B87-2B32-45E7-B9E5-4293C734F751",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DE5BB8B9A57DD779848A243A54D79680CB107D28" : "",
+    "4D136CCC21ED72D54001650017FB13AE994B0E53" : "HackIt\/",
+    "4D754A481DF78E9EBB9161285712C564F888BBF5" : "..",
+    "37DE758C9FDB00220CDE4B8C062CC17F11A8162E" : "..\/AC3.2-groupFour-homelessness"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "InstaGreen",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "InstaGreen\/InstaGreen.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/C4Q\/AC3.2-groupFour-homelessness.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "37DE758C9FDB00220CDE4B8C062CC17F11A8162E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MiraEs\/HackIt.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4D136CCC21ED72D54001650017FB13AE994B0E53"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/\/",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4D754A481DF78E9EBB9161285712C564F888BBF5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/C4Q\/AC3.2-groupThree-ImmigrantServices.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DE5BB8B9A57DD779848A243A54D79680CB107D28"
+    }
+  ]
+}

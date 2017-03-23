@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FIRApp.configure()
+        
+        FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
+            
+            if error != nil {
+                print("Error attempting to log in anonymously: \(error!)")
+            }
+            if user != nil {
+                print("Signed in anonymously!")
+                
+                //self.shouldPerformSegue(withIdentifier: self.segue, sender: self)
+            }
+        })
+        
+        //Styling
+        UILabel.appearance().font = UIFont(name: "Avenir Next", size: 16.0)
+        
+        let color = UIColor(red:0.10, green:0.74, blue:0.61, alpha:1.0)
+        let tabBarAppearnce = UITabBar.appearance()
+        tabBarAppearnce.barTintColor = UIColor.white
+        tabBarAppearnce.tintColor = color
+        
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.barTintColor = color
+        navBarAppearance.tintColor = color
+
+        
         return true
     }
 
