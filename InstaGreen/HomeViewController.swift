@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         mapView.showsPointsOfInterest = false
         centerMapOnLocation(location: initialLocation)
         addPin(at: "NYC", lat: 40.7128, long: -74.0059)
+        self.navigationItem.title = "Instagreen"
         
         getData()
         

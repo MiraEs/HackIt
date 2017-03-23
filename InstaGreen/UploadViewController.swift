@@ -31,6 +31,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         commentTextView?.textColor = UIColor.lightGray
         commentTextView?.layer.borderWidth = 1.0
         commentTextView?.layer.borderColor = UIColor.lightGray.cgColor
+        self.navigationItem.title = "Upload"
         
     }
     

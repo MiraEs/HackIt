@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.barTintColor = color
         navBarAppearance.tintColor = color
-
+        navBarAppearance.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir-Book", size: 22)!, NSForegroundColorAttributeName : UIColor.white]
         
         return true
     }
